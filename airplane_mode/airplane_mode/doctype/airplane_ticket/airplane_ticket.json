@@ -1,0 +1,209 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{flight}-{source_airport_code}-to-{destination_airport_code}-{###}",
+ "creation": "2024-10-29 11:46:33.459761",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "passanger",
+  "source_airport",
+  "source_airport_code",
+  "depature_details",
+  "depature_date",
+  "duration_of_flight",
+  "seat",
+  "column_break_btql",
+  "flight",
+  "destination_airport",
+  "destination_airport_code",
+  "heading_wycj",
+  "depature_time",
+  "status",
+  "amended_from",
+  "section_break_qrox",
+  "add_ons",
+  "section_break_iopb",
+  "flight_price",
+  "column_break_fakb",
+  "total_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "passanger",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Passanger",
+   "options": "Flight Passenger",
+   "reqd": 1
+  },
+  {
+   "fieldname": "source_airport",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Source Airport",
+   "options": "Airport"
+  },
+  {
+   "fetch_from": "flight.source_airport_code",
+   "fieldname": "source_airport_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Source Airport Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "flight",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Flight",
+   "options": "Airplane Flight",
+   "reqd": 1
+  },
+  {
+   "fieldname": "destination_airport",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Destination Airport",
+   "options": "Airport"
+  },
+  {
+   "fetch_from": "flight.destination_airport_code",
+   "fieldname": "destination_airport_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Destination Airport Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "depature_details",
+   "fieldtype": "Heading",
+   "label": "Depature Details"
+  },
+  {
+   "fetch_from": "flight.date_of_departure",
+   "fieldname": "depature_date",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Depature Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "flight.duration",
+   "fieldname": "duration_of_flight",
+   "fieldtype": "Duration",
+   "label": "Duration Of Flight",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_btql",
+   "fieldtype": "Column Break",
+   "hidden": 1
+  },
+  {
+   "fetch_from": "flight.time_of_departure",
+   "fieldname": "depature_time",
+   "fieldtype": "Time",
+   "label": "Depature Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "heading_wycj",
+   "fieldtype": "Heading",
+   "hidden": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Booked\nChecked-In\nBoarded"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Airplane Ticket",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_qrox",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "add_ons",
+   "fieldtype": "Table",
+   "label": "Add Ons",
+   "options": "Airplane Ticket Add-on Item"
+  },
+  {
+   "fieldname": "section_break_iopb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price"
+  },
+  {
+   "fieldname": "column_break_fakb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "Seat",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-05 07:16:15.932371",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "Airplane Ticket",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Booked"
+  },
+  {
+   "color": "Purple",
+   "title": "Checked-In"
+  },
+  {
+   "color": "Green",
+   "title": "Boarded"
+  }
+ ],
+ "track_changes": 1
+}

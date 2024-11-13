@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "autoname": "format:{airplane}-{MM}-{YYYY}-{#####}",
+ "creation": "2024-11-04 15:21:20.815729",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "airplane",
+  "date_of_departure",
+  "duration",
+  "column_break_dtvy",
+  "status",
+  "time_of_departure",
+  "is_published",
+  "route",
+  "section_break_hxbd",
+  "source_airport",
+  "source_airport_code",
+  "column_break_ajpn",
+  "destination_airport",
+  "destination_airport_code",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "airplane",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Airplane",
+   "options": "Airline",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_departure",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date Of Departure",
+   "reqd": 1
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "in_list_view": 1,
+   "label": "Duration",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dtvy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Scheduled",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Scheduled\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "time_of_departure",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time Of Departure",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_hxbd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "source_airport",
+   "fieldtype": "Link",
+   "label": "Source Airport",
+   "options": "Airport"
+  },
+  {
+   "fetch_from": "source_airport.code",
+   "fieldname": "source_airport_code",
+   "fieldtype": "Data",
+   "label": "Source Airport Code"
+  },
+  {
+   "fieldname": "column_break_ajpn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "destination_airport",
+   "fieldtype": "Link",
+   "label": "Destination Airport",
+   "options": "Airport"
+  },
+  {
+   "fetch_from": "destination_airport.code",
+   "fieldname": "destination_airport_code",
+   "fieldtype": "Data",
+   "label": "Destination Airport Code"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Airplane Flight",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "is published"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
+  }
+ ],
+ "has_web_view": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "link_doctype": "Airplane Ticket",
+   "link_fieldname": "flight"
+  }
+ ],
+ "modified": "2024-11-09 21:08:52.551233",
+ "modified_by": "Administrator",
+ "module": "Airplane Mode",
+ "name": "Airplane Flight",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "airplane"
+}
